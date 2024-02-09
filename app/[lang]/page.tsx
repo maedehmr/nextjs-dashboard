@@ -3,8 +3,15 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
+import { Locale } from '../../locale/i18n-config';
+import { getDictionary } from '@/locale/getDictionaries';
 
-export default function Page() {
+interface PageParams {
+  params: { lang: Locale };
+}
+
+const Page: React.FC<PageParams> = async ({ params }) => {
+  const dict = await getDictionary(params.lang);
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
@@ -25,7 +32,7 @@ export default function Page() {
             href="/login"
             className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
-            <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
+            <span>{dict.main.login}</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
@@ -48,3 +55,5 @@ export default function Page() {
     </main>
   );
 }
+
+export default Page;

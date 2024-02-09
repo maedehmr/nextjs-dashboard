@@ -1,5 +1,8 @@
-import '@/app/ui/global.css';
 import { Metadata } from 'next';
+
+//assets
+import '@/app/ui/assets/font/font.css';
+import '@/app/ui/assets/global.css';
 
 //localization
 import { i18n, type Locale } from '../../locale/i18n-config';

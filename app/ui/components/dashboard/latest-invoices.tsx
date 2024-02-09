@@ -1,7 +1,7 @@
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { LatestInvoice } from '@/app/lib/definitions';
+import { LatestInvoice } from '@/app/types/definitions';
 import { fetchLatestInvoices } from '@/app/lib/data';
 
 export default async function LatestInvoices() {

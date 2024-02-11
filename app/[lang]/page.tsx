@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Locale } from '../../locale/i18n-config';
 import { getDictionary } from '@/locale/getDictionaries';
+import LocaleSwitcher from '../ui/components/locale-switcher';
 
 interface PageParams {
   params: { lang: Locale };
@@ -13,6 +14,7 @@ const Page: React.FC<PageParams> = async ({ params }) => {
   const dict = await getDictionary(params.lang);
   return (
     <main className="flex min-h-screen flex-col p-6">
+          <LocaleSwitcher />
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
         <AcmeLogo />
       </div>
